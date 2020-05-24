@@ -1,0 +1,22 @@
+{
+  "name": "ct-service",
+  "version": "1.0.0",
+  "description": "backend for chonk tracker mobile app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Logan-Shy/chonktracker-backend.git"
+  },
+  "author": "Logan Shy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Logan-Shy/chonktracker-backend/issues"
+  },
+  "homepage": "https://github.com/Logan-Shy/chonktracker-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
