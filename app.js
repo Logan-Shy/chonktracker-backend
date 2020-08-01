@@ -2,19 +2,26 @@ const express = require('express')
 const app = express()
 const port = 80
 var timeSinceFed = "defaultTimeText"
+var dayFed = "defaultDayText"
 
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({extended: true})) //for parsing application/x-www-form-urlencoded
+// for parsing application/json
+app.use(express.json()) 
 
-app.get('/', (req, res) => res.json({ time: timeSinceFed})) //Send current TSF in JSON format as response to GET request at root URL
+//for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({extended: true})) 
 
-app.post('/', (req, res) => {   //Update current TSF with kvp from POST body and echo time back
-    if(req.body.time == null){
+//Send current TSF and day in JSON format as response to GET request at root URL
+app.get('/', (req, res) => res.json({ time: timeSinceFed, day: dayFed})) 
+
+//Update current TSF with kvp from POST body and echo time back
+app.post('/', (req, res) => {   
+    if(req.body.time == null || req.body.day == null){
         res.send(`POST request formatted incorrectly`)
     } else {
         timeSinceFed = req.body.time
+        dayFed = req.body.day
         console.log(req.body)
-        res.send(`POST request received: ${timeSinceFed}`)
+        res.send(`POST request received: ${dayFed}, ${timeSinceFed}`)
     }
 })
 
